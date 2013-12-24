@@ -59,6 +59,9 @@ public class SignUpActivity extends Activity {
 		et_password = (EditText) findViewById(R.id.et_password);
 		btn_signup = (Button) findViewById(R.id.btn_signup);
 		tv_login_link = (TextView) findViewById(R.id.tv_login_link);
+	}
+	
+	public void readInput() {
 		firstname = et_firstname.getText().toString();
 		lastname = et_lastname.getText().toString();
 		username = et_username.getText().toString();
