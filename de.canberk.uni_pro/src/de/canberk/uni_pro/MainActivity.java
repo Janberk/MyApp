@@ -4,11 +4,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -91,18 +93,21 @@ public class MainActivity extends Activity {
 				line = convertStreamToString(inputstream);
 				Toast.makeText(this, line, Toast.LENGTH_LONG).show();
 			} else {
-				// Toast.makeText(this, "Unable to complete your request",
-				// Toast.LENGTH_LONG).show();
+				Toast.makeText(this, "Unable to complete your request",
+						Toast.LENGTH_LONG).show();
 			}
 		} catch (ClientProtocolException e) {
 			Toast.makeText(this, "Caught ClientProtocolException " + e,
 					Toast.LENGTH_SHORT).show();
+			e.printStackTrace();
 		} catch (IOException e) {
 			Toast.makeText(this, "Caught IOException " + e, Toast.LENGTH_SHORT)
 					.show();
+			e.printStackTrace();
 		} catch (Exception e) {
 			Toast.makeText(this, "Caught Exception " + e, Toast.LENGTH_SHORT)
 					.show();
+			e.printStackTrace();
 		}
 
 	}
@@ -117,6 +122,7 @@ public class MainActivity extends Activity {
 			}
 		} catch (Exception e) {
 			Toast.makeText(this, "Stream Exception", Toast.LENGTH_SHORT).show();
+			e.printStackTrace();
 		}
 		return sb.toString();
 	}
