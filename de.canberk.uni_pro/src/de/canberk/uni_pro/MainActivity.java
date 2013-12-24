@@ -23,7 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 @SuppressLint("NewApi")
-public class MainActivity extends Activity {
+public class MainActivity extends Activity {//comment
 
 	private StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
 			.permitAll().build();
