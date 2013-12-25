@@ -55,7 +55,7 @@ public class SignUpActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				postRequest();
-
+				createUser();
 			}
 		});
 
@@ -68,24 +68,34 @@ public class SignUpActivity extends Activity {
 			}
 		});
 	}
-	
+
+	public void initElements() {
+		et_firstname = (EditText) findViewById(R.id.et_firstname);
+		et_lastname = (EditText) findViewById(R.id.et_lastname);
+		et_username = (EditText) findViewById(R.id.et_username);
+		et_email = (EditText) findViewById(R.id.et_email);
+		et_password = (EditText) findViewById(R.id.et_password);
+		btn_signup = (Button) findViewById(R.id.btn_signup);
+		tv_login_link = (TextView) findViewById(R.id.tv_login_link);
+	}
+
 	public List<NameValuePair> createParams() {
 		List<NameValuePair> params = new ArrayList<NameValuePair>(2);
-		
+
 		firstname = et_firstname.getText().toString();
 		lastname = et_lastname.getText().toString();
 		username = et_username.getText().toString();
 		email = et_email.getText().toString();
 		password = et_password.getText().toString();
-		
+
 		params.add(new BasicNameValuePair("firstname", firstname));
 		params.add(new BasicNameValuePair("lastname", lastname));
 		params.add(new BasicNameValuePair("username", username));
 		params.add(new BasicNameValuePair("email", email));
 		params.add(new BasicNameValuePair("password", password));
-		
+
 		return params;
-		
+
 	}
 
 	public void postRequest() {
@@ -94,8 +104,8 @@ public class SignUpActivity extends Activity {
 		String fullUri = uri + file;
 
 		HttpClient httpclient = new DefaultHttpClient();
-		HttpPost httpPost = new HttpPost(fullUri);		
-		
+		HttpPost httpPost = new HttpPost(fullUri);
+
 		try {
 			httpPost.setEntity(new UrlEncodedFormEntity(createParams(), "UTF-8"));
 		} catch (UnsupportedEncodingException e) {
@@ -131,16 +141,6 @@ public class SignUpActivity extends Activity {
 
 	}
 
-	public void initElements() {
-		et_firstname = (EditText) findViewById(R.id.et_firstname);
-		et_lastname = (EditText) findViewById(R.id.et_lastname);
-		et_username = (EditText) findViewById(R.id.et_username);
-		et_email = (EditText) findViewById(R.id.et_email);
-		et_password = (EditText) findViewById(R.id.et_password);
-		btn_signup = (Button) findViewById(R.id.btn_signup);
-		tv_login_link = (TextView) findViewById(R.id.tv_login_link);
-	}
-
 	private String convertStreamToString(InputStream is) {
 		String line = "";
 		StringBuilder sb = new StringBuilder();
@@ -154,6 +154,18 @@ public class SignUpActivity extends Activity {
 			e.printStackTrace();
 		}
 		return sb.toString();
+	}
+
+	private User createUser() {
+		firstname = et_firstname.getText().toString();
+		lastname = et_lastname.getText().toString();
+		username = et_username.getText().toString();
+		email = et_email.getText().toString();
+		password = et_password.getText().toString();
+
+		User user = new User(firstname, lastname, username, email, password);
+
+		return user;
 	}
 
 	@Override
