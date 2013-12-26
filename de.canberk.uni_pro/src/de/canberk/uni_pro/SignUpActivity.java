@@ -55,7 +55,6 @@ public class SignUpActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				postRequest();
-				createUser();
 			}
 		});
 
@@ -154,18 +153,6 @@ public class SignUpActivity extends Activity {
 			e.printStackTrace();
 		}
 		return sb.toString();
-	}
-
-	private User createUser() {
-		firstname = et_firstname.getText().toString();
-		lastname = et_lastname.getText().toString();
-		username = et_username.getText().toString();
-		email = et_email.getText().toString();
-		password = et_password.getText().toString();
-
-		User user = new User(firstname, lastname, username, email, password);
-
-		return user;
 	}
 
 	@Override

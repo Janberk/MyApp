@@ -15,5 +15,6 @@
     <string name="login_in_link">Go back to Login-Screen!</string>
     <string name="title_activity_sign_up">SignUpActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_save_user">SaveUserActivity</string>
 
 </resources>

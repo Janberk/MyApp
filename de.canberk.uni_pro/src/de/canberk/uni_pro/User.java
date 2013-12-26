@@ -2,12 +2,23 @@ package de.canberk.uni_pro;
 
 public class User {
 
+	private int id;
 	private String firstname;
 	private String lastname;
 	private String username;
 	private String email;
 	private String password;
 
+	public User(int id, String firstname, String lastname, String username,
+			String email, String password) {
+		setId(id);
+		setFirstname(firstname);
+		setLastname(lastname);
+		setUsername(username);
+		setEmail(email);
+		setPassword(password);
+	}
+	
 	public User(String firstname, String lastname, String username,
 			String email, String password) {
 		setFirstname(firstname);
@@ -27,6 +38,14 @@ public class User {
 	}
 
 	// getters and setters
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getFirstname() {
 		return firstname;
 	}
@@ -71,6 +90,7 @@ public class User {
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
 		
+		sb.append("ID: " + getId() + "\n");
 		sb.append("First name: " + getFirstname() + "\n");
 		sb.append("Last name: " + getLastname() + "\n");
 		sb.append("User name: " + getUsername() + "\n");
